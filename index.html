@@ -23,6 +23,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
+            background: white;
         }
         
         /* Header Styles */
@@ -56,6 +57,7 @@
         .top-links-left, .top-links-right {
             display: flex;
             gap: 25px;
+            align-items: center;
         }
         
         .top-links a {
@@ -87,14 +89,37 @@
             padding: 15px 0;
         }
         
-        .logo {
-            height: 40px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* U.S. Bank Logo Style */
+        .usbank-logo {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--usbank-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .usbank-logo span:first-child {
+            color: var(--usbank-blue);
+        }
+        
+        .usbank-logo span:last-child {
+            color: var(--usbank-red);
         }
         
         .nav-menu {
             display: flex;
             gap: 30px;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
         
         .nav-menu > li {
@@ -107,6 +132,7 @@
             font-weight: 500;
             padding: 10px 0;
             display: block;
+            font-size: 16px;
         }
         
         .nav-menu a:hover {
@@ -117,43 +143,40 @@
             background: var(--usbank-red);
             color: white;
             border: none;
-            padding: 8px 20px;
+            padding: 10px 24px;
             border-radius: 4px;
             font-weight: 600;
             cursor: pointer;
             font-size: 14px;
             text-decoration: none;
             display: inline-block;
+            transition: background 0.3s ease;
         }
         
         .login-button:hover {
             background: #b0242e;
         }
         
-        /* FIXED HERO BANNER - Background Image Working */
+        /* FIXED HERO BANNER - Using direct image URL */
         .hero-banner {
             position: relative;
             min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                        url('https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-image: url('https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
             align-items: center;
-            color: white;
         }
         
-        /* Overlay for better text readability */
-        .hero-banner::before {
-            content: '';
+        /* Dark overlay for better text readability */
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
         }
         
         .hero-content {
@@ -163,8 +186,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            display: flex;
-            justify-content: flex-start;
         }
         
         .hero-card {
@@ -172,7 +193,7 @@
             color: #333;
             padding: 40px;
             border-radius: 8px;
-            max-width: 450px;
+            max-width: 500px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.2);
         }
         
@@ -275,6 +296,7 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+            display: block;
         }
         
         .card-content {
@@ -380,6 +402,7 @@
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            display: block;
         }
         
         .full-width-text h2 {
@@ -431,6 +454,7 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
+            display: block;
         }
         
         .article-content {
@@ -510,6 +534,7 @@
             font-size: 24px;
             color: var(--usbank-blue);
             cursor: pointer;
+            padding: 5px;
         }
         
         /* Responsive */
@@ -530,10 +555,6 @@
             .hero-card {
                 max-width: 100%;
                 margin: 0 auto;
-            }
-            
-            .hero-content {
-                justify-content: center;
             }
         }
         
@@ -608,6 +629,10 @@
             .section-title {
                 font-size: 28px;
             }
+            
+            .usbank-logo {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -640,10 +665,13 @@
         <div class="header-container">
             <div class="main-nav">
                 <button class="mobile-menu-btn">☰</button>
-                <a href="/" class="logo">
-                    <!-- U.S. Bank Logo Text -->
-                    <span style="font-size: 24px; font-weight: bold; color: var(--usbank-blue);">U.S. Bank</span>
-                </a>
+                <div class="logo-container">
+                    <!-- U.S. Bank Logo like in original code -->
+                    <a href="/" class="usbank-logo">
+                        <span>U.S.</span>
+                        <span>Bank</span>
+                    </a>
+                </div>
                 <ul class="nav-menu">
                     <li><a href="#personal">Personal</a></li>
                     <li><a href="#wealth">Wealth Management</a></li>
@@ -658,6 +686,7 @@
 
     <!-- FIXED HERO BANNER - Background Image Now Working -->
     <section class="hero-banner">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-card">
                 <h1>Personal Banking</h1>
@@ -843,24 +872,47 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Test if images are loading
+            console.log('Testing image loading...');
+            
+            // Create a test image to check if Unsplash is accessible
+            const testImg = new Image();
+            testImg.onload = function() {
+                console.log('✓ Unsplash image loaded successfully');
+            };
+            testImg.onerror = function() {
+                console.log('✗ Unsplash image failed to load - trying alternative URL');
+                // If Unsplash fails, use a different image source
+                const heroBanner = document.querySelector('.hero-banner');
+                if (heroBanner) {
+                    heroBanner.style.backgroundImage = "url('https://source.unsplash.com/random/2070x500/?family,finance')";
+                }
+            };
+            testImg.src = 'https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80';
+            
             // Mobile menu toggle
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navMenu = document.querySelector('.nav-menu');
             
-            mobileMenuBtn.addEventListener('click', function() {
-                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-                if (navMenu.style.display === 'flex') {
-                    navMenu.style.flexDirection = 'column';
-                    navMenu.style.position = 'absolute';
-                    navMenu.style.top = '100%';
-                    navMenu.style.left = '0';
-                    navMenu.style.right = '0';
-                    navMenu.style.background = 'white';
-                    navMenu.style.padding = '20px';
-                    navMenu.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-                    navMenu.style.zIndex = '1000';
-                }
-            });
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const isVisible = navMenu.style.display === 'flex';
+                    navMenu.style.display = isVisible ? 'none' : 'flex';
+                    
+                    if (!isVisible) {
+                        navMenu.style.flexDirection = 'column';
+                        navMenu.style.position = 'absolute';
+                        navMenu.style.top = '100%';
+                        navMenu.style.left = '0';
+                        navMenu.style.right = '0';
+                        navMenu.style.background = 'white';
+                        navMenu.style.padding = '20px';
+                        navMenu.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                        navMenu.style.zIndex = '1000';
+                        navMenu.style.gap = '15px';
+                    }
+                });
+            }
             
             // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -903,15 +955,17 @@
         // Handle window resize
         window.addEventListener('resize', function() {
             const navMenu = document.querySelector('.nav-menu');
-            if (window.innerWidth > 1024) {
-                navMenu.style.display = 'flex';
-                navMenu.style.flexDirection = 'row';
-                navMenu.style.position = 'static';
-                navMenu.style.background = 'transparent';
-                navMenu.style.padding = '0';
-                navMenu.style.boxShadow = 'none';
-            } else {
-                navMenu.style.display = 'none';
+            if (navMenu) {
+                if (window.innerWidth > 1024) {
+                    navMenu.style.display = 'flex';
+                    navMenu.style.flexDirection = 'row';
+                    navMenu.style.position = 'static';
+                    navMenu.style.background = 'transparent';
+                    navMenu.style.padding = '0';
+                    navMenu.style.boxShadow = 'none';
+                } else {
+                    navMenu.style.display = 'none';
+                }
             }
         });
     </script>
