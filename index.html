@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.S. Bank Online Banking - Log In</title>
+    <title>Personal Banking, Credit Cards, Loans & Investing | U.S. Bank</title>
     <style>
+        :root {
+            --usbank-blue: #0033a0;
+            --usbank-dark-blue: #001f6d;
+            --usbank-red: #cc0000;
+            --usbank-light-gray: #f5f5f5;
+            --usbank-gray: #e0e0e0;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -13,79 +21,81 @@
         
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        /* TOP SECTION - FROM IMAGE */
+        .top-section {
+            background: white;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
         
-        /* Header */
-        .header {
-            background-color: white;
-            padding: 15px 0;
+        .login-header {
+            background: white;
+            padding: 20px 40px;
             border-bottom: 1px solid #ddd;
-        }
-        
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        .logo {
-            font-size: 24px;
+        .usbank-logo {
+            font-family: Arial, sans-serif;
+            font-size: 28px;
             font-weight: bold;
-            color: #0033a0;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 2px;
         }
         
-        .logo span:first-child {
-            color: #0033a0;
+        .usbank-logo span:first-child {
+            color: var(--usbank-blue);
         }
         
-        .logo span:last-child {
-            color: #cc0000;
+        .usbank-logo span:last-child {
+            color: var(--usbank-red);
         }
         
-        /* Main Content */
-        .main-content {
+        /* Login Container - EXACT MATCH TO IMAGE */
+        .login-container {
             flex: 1;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             padding: 40px 20px;
-        }
-        
-        .login-container {
-            width: 100%;
             max-width: 450px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            margin: 0 auto;
+            width: 100%;
         }
         
         .login-title {
-            color: #333;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: normal;
+            color: #333;
             margin-bottom: 10px;
             text-align: center;
         }
         
         .login-subtitle {
+            font-size: 18px;
             color: #666;
-            font-size: 16px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-align: center;
         }
         
-        /* Form Styles */
+        /* Login Form */
+        .login-form {
+            width: 100%;
+        }
+        
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .form-label {
@@ -98,7 +108,7 @@
         
         .form-input {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
@@ -106,14 +116,14 @@
         
         .form-input:focus {
             outline: none;
-            border-color: #0033a0;
+            border-color: var(--usbank-blue);
             box-shadow: 0 0 0 2px rgba(0, 51, 160, 0.2);
         }
         
         .login-button {
             width: 100%;
-            padding: 14px;
-            background-color: #cc0000;
+            padding: 16px;
+            background-color: var(--usbank-red);
             color: white;
             border: none;
             border-radius: 4px;
@@ -131,8 +141,8 @@
         .forgot-link {
             display: block;
             text-align: center;
-            margin-top: 15px;
-            color: #0033a0;
+            margin-top: 20px;
+            color: var(--usbank-blue);
             text-decoration: none;
             font-size: 14px;
         }
@@ -141,107 +151,628 @@
             text-decoration: underline;
         }
         
-        /* Alert Box */
-        .alert-box {
+        /* Product Box - EXACT FROM IMAGE */
+        .product-box {
             background-color: #f8f8f8;
-            border-left: 4px solid #0033a0;
-            padding: 15px;
-            margin-top: 25px;
+            border-left: 4px solid var(--usbank-blue);
+            padding: 25px;
+            margin-top: 40px;
+            width: 100%;
             font-size: 14px;
             line-height: 1.5;
         }
         
-        .alert-title {
+        .product-title {
             color: #333;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
         }
         
-        /* Footer */
-        .footer {
-            background-color: white;
-            border-top: 1px solid #ddd;
-            padding: 20px 0;
-            margin-top: auto;
+        .product-description {
+            color: #666;
+            margin-bottom: 20px;
         }
         
-        .footer-container {
+        .product-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .product-link {
+            color: var(--usbank-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .product-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Rest of the existing CSS remains exactly the same */
+        /* Header Styles */
+        .global-header {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background: var(--usbank-dark-blue);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .header-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        .top-links {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        .footer-links {
+        .top-links-left, .top-links-right {
             display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .top-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .top-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .smart-assistant-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu > li {
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0;
+            display: block;
+            font-size: 16px;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--usbank-blue);
+        }
+        
+        /* HERO BANNER */
+        .hero-banner {
+            position: relative;
+            min-height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-card {
+            background: white;
+            color: #333;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 500px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        
+        .hero-card h1 {
+            color: var(--usbank-blue);
+            margin-bottom: 15px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        .hero-card h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .hero-card p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #555;
+            font-size: 16px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .button-primary {
+            background: var(--usbank-blue);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .button-primary:hover {
+            background: #061852;
+        }
+        
+        .button-secondary {
+            background: white;
+            color: var(--usbank-blue);
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--usbank-blue);
+            display: inline-block;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .button-secondary:hover {
+            background: var(--usbank-blue);
+            color: white;
+        }
+        
+        /* Cards Section */
+        .cards-section {
+            padding: 60px 20px;
+            background: var(--usbank-light-gray);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            color: var(--usbank-blue);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .arrow-link {
+            color: var(--usbank-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .arrow-link:after {
+            content: '›';
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .arrow-link:hover:after {
+            transform: translateX(5px);
+        }
+        
+        /* Product Categories */
+        .product-categories {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .category-card {
+            text-align: center;
+            padding: 25px 15px;
+            border: 1px solid var(--usbank-gray);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            border-color: var(--usbank-blue);
+            box-shadow: 0 4px 12px rgba(12, 32, 116, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            background: var(--usbank-light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--usbank-blue);
+            font-size: 24px;
+        }
+        
+        .category-card h4 {
+            color: var(--usbank-blue);
+            font-size: 16px;
+        }
+        
+        /* Full Width Section */
+        .full-width-section {
+            padding: 80px 20px;
+            background: var(--usbank-blue);
+            color: white;
+        }
+        
+        .full-width-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .full-width-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            display: block;
+        }
+        
+        .full-width-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .full-width-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        /* Happening Now */
+        .happening-now {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--usbank-blue);
+            margin-bottom: 50px;
+            font-size: 36px;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .article-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .article-content {
+            padding: 30px;
+        }
+        
+        .article-category {
+            color: var(--usbank-red);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .article-title {
+            color: var(--usbank-blue);
+            font-size: 20px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        /* Footer */
+        .global-footer {
+            background: var(--usbank-dark-blue);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
         }
         
         .footer-links a {
-            color: #666;
+            color: #b0b0b0;
             text-decoration: none;
             font-size: 14px;
         }
         
         .footer-links a:hover {
+            color: white;
             text-decoration: underline;
         }
         
         .copyright {
-            color: #666;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b0b0b0;
             font-size: 14px;
         }
         
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--usbank-blue);
+            cursor: pointer;
+            padding: 5px;
+        }
+        
         /* Responsive */
-        @media (max-width: 768px) {
-            .login-container {
-                padding: 30px 20px;
+        @media (max-width: 1024px) {
+            .nav-menu {
+                display: none;
             }
             
-            .footer-container {
-                flex-direction: column;
-                gap: 15px;
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .full-width-content {
+                grid-template-columns: 1fr;
                 text-align: center;
             }
             
-            .footer-links {
-                flex-wrap: wrap;
+            .hero-card {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-links {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .top-links-left, .top-links-right {
                 justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .hero-banner {
+                min-height: 400px;
+            }
+            
+            .hero-card h1 {
+                font-size: 28px;
+            }
+            
+            .hero-card h2 {
+                font-size: 20px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .button-primary, .button-secondary {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 480px) {
-            .login-title {
-                font-size: 24px;
+            .hero-banner {
+                min-height: 350px;
             }
             
-            .login-container {
-                padding: 25px 15px;
+            .hero-card {
+                padding: 25px;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .full-width-text h2 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <a href="/" class="logo">
+    <!-- TOP SECTION - EXACT MATCH TO IMAGE -->
+    <div class="top-section">
+        <div class="login-header">
+            <a href="/" class="usbank-logo">
                 <span>U.S.</span>
                 <span>Bank</span>
             </a>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
+        
         <div class="login-container">
             <h1 class="login-title">Log in</h1>
             <p class="login-subtitle">Personal Banking</p>
             
-            <!-- Login Form -->
-            <form id="loginForm">
+            <form class="login-form" id="loginForm">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" id="username" class="form-input" placeholder="Enter your username">
@@ -257,38 +788,255 @@
                 <a href="#" class="forgot-link">Forgot username/password?</a>
             </form>
             
-            <!-- Product Info Box (from image) -->
-            <div class="alert-box">
-                <div class="alert-title">Checking, rewards plus fee waivers with qualifying activities</div>
-                <p>U.S. Bank Smartly Checking rewards your everyday banking</p>
-                <div style="margin-top: 15px; display: flex; gap: 10px;">
-                    <a href="#" style="color: #0033a0; text-decoration: none; font-weight: bold;">Open an account</a>
-                    <a href="#" style="color: #0033a0; text-decoration: none; font-weight: bold;">View details</a>
+            <!-- Product Box - EXACT TEXT FROM IMAGE -->
+            <div class="product-box">
+                <div class="product-title">Checking, rewards plus fee waivers with qualifying activities</div>
+                <p class="product-description">U.S. Bank Smartly® Checking rewards your everyday banking.</p>
+                <div class="product-links">
+                    <a href="#" class="product-link">Open an account</a>
+                    <a href="#" class="product-link">View details</a>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+
+    <!-- REST OF THE WEBSITE - EXISTING CODE -->
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="header-container">
+            <div class="top-links">
+                <div class="top-links-left">
+                    <a href="/about-us-bank.html">About us</a>
+                    <a href="/financialiq.html">Financial education</a>
+                </div>
+                <div class="top-links-right">
+                    <a href="/customer-service.html">Support</a>
+                    <a href="https://www.usbank.com/locations/search/">Locations</a>
+                    <button class="smart-assistant-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M6.5 1C3.46 1 1 3.46 1 6.5S3.46 12 6.5 12c.61 0 1.19-.11 1.74-.3l3.56 3.56 1.06-1.06-3.56-3.56c.19-.55.3-1.13.3-1.74C12 3.46 9.54 1 6.5 1zm0 1C9.09 2 11 3.91 11 6.5S9.09 11 6.5 11 2 9.09 2 6.5 3.91 2 6.5 2z"/>
+                        </svg>
+                        Smart Assistant
+                    </button>
+                    <a href="https://onlinebanking.usbank.com/auth/login/" class="login-button">Log in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="global-header">
+        <div class="header-container">
+            <div class="main-nav">
+                <button class="mobile-menu-btn">☰</button>
+                <div class="logo-container">
+                    <a href="/" class="usbank-logo">
+                        <span>U.S.</span>
+                        <span>Bank</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#personal">Personal</a></li>
+                    <li><a href="#wealth">Wealth Management</a></li>
+                    <li><a href="#business">Business</a></li>
+                    <li><a href="#corporate">Corporate & Commercial</a></li>
+                    <li><a href="#institutional">Institutional</a></li>
+                </ul>
+                <a href="https://onlinebanking.usbank.com/auth/login/" class="login-button">Log in</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-card">
+                <h1>Personal Banking</h1>
+                <h2>Checking, rewards plus fee waivers with qualifying activities</h2>
+                <p>U.S. Bank Smartly® Checking rewards your everyday banking.</p>
+                <div class="button-group">
+                    <a href="/bank-accounts/checking-accounts/bank-smartly-checking.html" class="button-primary">Open an account</a>
+                    <a href="/bank-accounts/checking-accounts/bank-smartly-checking.html" class="button-secondary">View details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="section-container">
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Credit Card" class="card-image">
+                    <div class="card-content">
+                        <h3>Credit card</h3>
+                        <p>U.S. Bank Split™ World Mastercard® - Pay later on every purchase with our newest card offering.</p>
+                        <a href="/credit-cards.html" class="arrow-link">Learn more</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Banker meeting with client" class="card-image">
+                    <div class="card-content">
+                        <h3>Connect with us</h3>
+                        <p>Turn ambitions into achievements. With the right partner, there's no limit to what you can accomplish.</p>
+                        <a href="/schedule-appointment.html" class="arrow-link">Book an appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="product-categories">
+        <div class="section-container">
+            <h2 class="section-title">Explore Products</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">💳</div>
+                    <h4>Credit Cards</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏦</div>
+                    <h4>Checking Accounts</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💰</div>
+                    <h4>Savings Accounts</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📈</div>
+                    <h4>CD Accounts</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏠</div>
+                    <h4>Mortgage</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📊</div>
+                    <h4>Investing</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Width Section -->
+    <section class="full-width-section">
+        <div class="full-width-content">
+            <div>
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                     alt="Woman using mobile banking app" class="full-width-image">
+            </div>
+            <div class="full-width-text">
+                <h2>Banking smarter is easier than ever.</h2>
+                <p>Unlock more benefits and rewards plus track your money in one app when you open a checking account.</p>
+                <p>Apply in minutes with just $25.</p>
+                <a href="/bank-accounts/checking-accounts.html" class="button-primary" style="margin-top: 20px;">Open a checking account</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Happening Now -->
+    <section class="happening-now">
+        <h2 class="section-title">Happening now</h2>
+        <div class="articles-grid">
+            <article class="article-card">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Family in modern home" class="article-image">
+                <div class="article-content">
+                    <span class="article-category">Fund your goals</span>
+                    <h3 class="article-title">Wondering about personal lines of credit? Here's what to know.</h3>
+                    <a href="/personal-lines-of-credit.html" class="arrow-link">Pros and cons</a>
+                </div>
+            </article>
+            <article class="article-card">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae695104b5e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Family teaching children about money" class="article-image">
+                <div class="article-content">
+                    <span class="article-category">Kids and money</span>
+                    <h3 class="article-title">5 important ways to boost kids' money confidence</h3>
+                    <a href="/teaching-kids-finance.html" class="arrow-link">Here's how</a>
+                </div>
+            </article>
+            <article class="article-card">
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Couple planning retirement" class="article-image">
+                <div class="article-content">
+                    <span class="article-category">Life seasons</span>
+                    <h3 class="article-title">How to fine-tune your finances as an empty nester</h3>
+                    <a href="/empty-nester-finances.html" class="arrow-link">See tips</a>
+                </div>
+            </article>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-links">
-                <a href="#">Privacy</a>
-                <a href="#">Security</a>
-                <a href="#">Terms of use</a>
-                <a href="#">Accessibility</a>
-                <a href="#">Site map</a>
+    <footer class="global-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Personal Banking</h4>
+                <ul class="footer-links">
+                    <li><a href="#checking">Checking Accounts</a></li>
+                    <li><a href="#savings">Savings Accounts</a></li>
+                    <li><a href="#credit-cards">Credit Cards</a></li>
+                    <li><a href="#loans">Personal Loans</a></li>
+                    <li><a href="#mortgage">Mortgage</a></li>
+                </ul>
             </div>
-            <div class="copyright">
-                © 2024 U.S. Bank. All rights reserved.
+            <div class="footer-column">
+                <h4>Wealth Management</h4>
+                <ul class="footer-links">
+                    <li><a href="#investing">Investing</a></li>
+                    <li><a href="#retirement">Retirement Planning</a></li>
+                    <li><a href="#trusts">Trusts & Estates</a></li>
+                    <li><a href="#financial-planning">Financial Planning</a></li>
+                </ul>
             </div>
+            <div class="footer-column">
+                <h4>Business</h4>
+                <ul class="footer-links">
+                    <li><a href="#business-checking">Business Checking</a></li>
+                    <li><a href="#business-loans">Business Loans</a></li>
+                    <li><a href="#merchant-services">Merchant Services</a></li>
+                    <li><a href="#commercial-banking">Commercial Banking</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>About U.S. Bank</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#investors">Investor Relations</a></li>
+                    <li><a href="#diversity">Diversity & Inclusion</a></li>
+                    <li><a href="#news">Newsroom</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#security">Security Center</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 U.S. Bank. All rights reserved. | Member FDIC | Equal Housing Lender</p>
+            <p style="margin-top: 10px; font-size: 12px;">
+                Investment and insurance products and services including annuities are:<br>
+                Not a deposit • Not FDIC insured • May lose value • Not bank guaranteed • Not insured by any federal government agency
+            </p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Login form handling
             const loginForm = document.getElementById('loginForm');
-            
             if (loginForm) {
                 loginForm.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -301,19 +1049,103 @@
                         return;
                     }
                     
-                    // In a real application, this would be an API call
                     alert('Login functionality would be implemented here.');
-                    
-                    // For demonstration, clear the form
                     loginForm.reset();
                 });
             }
             
-            // Update copyright year
-            const copyrightElement = document.querySelector('.copyright');
-            if (copyrightElement) {
-                const currentYear = new Date().getFullYear();
-                copyrightElement.textContent = `© ${currentYear} U.S. Bank. All rights reserved.`;
+            // Test if images are loading
+            console.log('Testing image loading...');
+            
+            const testImg = new Image();
+            testImg.onload = function() {
+                console.log('✓ Unsplash image loaded successfully');
+            };
+            testImg.onerror = function() {
+                console.log('✗ Unsplash image failed to load');
+                const heroBanner = document.querySelector('.hero-banner');
+                if (heroBanner) {
+                    heroBanner.style.backgroundImage = "url('https://source.unsplash.com/random/2070x500/?family,finance')";
+                }
+            };
+            testImg.src = 'https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80';
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const isVisible = navMenu.style.display === 'flex';
+                    navMenu.style.display = isVisible ? 'none' : 'flex';
+                    
+                    if (!isVisible) {
+                        navMenu.style.flexDirection = 'column';
+                        navMenu.style.position = 'absolute';
+                        navMenu.style.top = '100%';
+                        navMenu.style.left = '0';
+                        navMenu.style.right = '0';
+                        navMenu.style.background = 'white';
+                        navMenu.style.padding = '20px';
+                        navMenu.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                        navMenu.style.zIndex = '1000';
+                        navMenu.style.gap = '15px';
+                    }
+                });
+            }
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || href.startsWith('#!')) return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Card hover effects
+            const cards = document.querySelectorAll('.card, .article-card, .category-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                    card.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '';
+                });
+            });
+            
+            // Update year in copyright
+            const yearSpan = document.querySelector('.copyright p');
+            if (yearSpan) {
+                yearSpan.innerHTML = yearSpan.innerHTML.replace('2024', new Date().getFullYear());
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            if (navMenu) {
+                if (window.innerWidth > 1024) {
+                    navMenu.style.display = 'flex';
+                    navMenu.style.flexDirection = 'row';
+                    navMenu.style.position = 'static';
+                    navMenu.style.background = 'transparent';
+                    navMenu.style.padding = '0';
+                    navMenu.style.boxShadow = 'none';
+                } else {
+                    navMenu.style.display = 'none';
+                }
             }
         });
     </script>
