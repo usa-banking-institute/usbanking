@@ -1,160 +1,662 @@
-<!-- COMPLETE BANKING WEBSITE TEMPLATE WITH UNSPLASH IMAGES -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banking Solutions | Modern Financial Services</title>
+    <title>Personal Banking, Credit Cards, Loans & Investing | U.S. Bank</title>
     <style>
-        /* Complete responsive CSS */
         :root {
-            --primary-blue: #0c2074;
-            --secondary-blue: #1a237e;
-            --accent-red: #cf2a36;
-            --light-gray: #f8f9fa;
-            --text-dark: #333333;
+            --usbank-blue: #0c2074;
+            --usbank-dark-blue: #061852;
+            --usbank-red: #cf2a36;
+            --usbank-light-gray: #f5f5f5;
+            --usbank-gray: #e0e0e0;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; }
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        /* Header/Navigation */
-        .global-header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo { font-size: 24px; font-weight: bold; color: var(--primary-blue); text-decoration: none; }
-        .nav-primary { display: flex; gap: 30px; list-style: none; }
-        .nav-primary a { text-decoration: none; color: var(--text-dark); font-weight: 500; padding: 8px 0; }
-        .nav-primary a:hover { color: var(--primary-blue); }
-        .login-btn { background: var(--primary-blue); color: white; padding: 8px 20px; border-radius: 4px; text-decoration: none; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        /* Hero Section */
-        .hero-banner { position: relative; min-height: 500px; display: flex; align-items: center; }
-        .hero-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-        .hero-overlay { background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%); position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .hero-content { color: white; max-width: 500px; z-index: 1; }
-        .hero-content h1 { font-size: 3rem; margin-bottom: 20px; }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6; }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
         
-        /* Product Cards */
-        .product-cards { padding: 80px 0; background: var(--light-gray); }
-        .section-title { text-align: center; margin-bottom: 50px; color: var(--primary-blue); font-size: 2.5rem; }
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-10px); }
-        .card-img { width: 100%; height: 200px; object-fit: cover; }
-        .card-content { padding: 25px; }
-        .card h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: 1.3rem; }
-        .card p { color: var(--text-dark); line-height: 1.6; margin-bottom: 20px; }
-        .card-link { color: var(--primary-blue); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; }
-        .card-link:after { content: '→'; margin-left: 5px; transition: transform 0.3s ease; }
-        .card-link:hover:after { transform: translateX(5px); }
+        /* Header Styles */
+        .global-header {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background: var(--usbank-dark-blue);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .top-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-links-left, .top-links-right {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .top-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .top-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .smart-assistant-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-menu > li {
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0;
+            display: block;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--usbank-blue);
+        }
+        
+        .login-button {
+            background: var(--usbank-red);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .login-button:hover {
+            background: #b0242e;
+        }
+        
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 60px;
+            left: 20px;
+            right: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: white;
+        }
+        
+        .hero-card {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .hero-card h1 {
+            color: var(--usbank-blue);
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+        
+        .hero-card h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .hero-card p {
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .button-primary {
+            background: var(--usbank-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .button-secondary {
+            background: white;
+            color: var(--usbank-blue);
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--usbank-blue);
+            display: inline-block;
+        }
+        
+        /* Cards Section */
+        .cards-section {
+            padding: 60px 20px;
+            background: var(--usbank-light-gray);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            color: var(--usbank-blue);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .arrow-link {
+            color: var(--usbank-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .arrow-link:after {
+            content: '›';
+            font-size: 20px;
+        }
+        
+        /* Product Categories */
+        .product-categories {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .category-card {
+            text-align: center;
+            padding: 25px 15px;
+            border: 1px solid var(--usbank-gray);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            border-color: var(--usbank-blue);
+            box-shadow: 0 4px 12px rgba(12, 32, 116, 0.1);
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            background: var(--usbank-light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--usbank-blue);
+            font-size: 24px;
+        }
+        
+        .category-card h4 {
+            color: var(--usbank-blue);
+            font-size: 16px;
+        }
         
         /* Full Width Section */
-        .full-width-section { padding: 80px 0; background: var(--primary-blue); color: white; }
-        .full-width-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .full-width-img { width: 100%; height: 400px; object-fit: cover; border-radius: 10px; }
-        .full-width-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .full-width-content p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 25px; }
+        .full-width-section {
+            padding: 80px 20px;
+            background: var(--usbank-blue);
+            color: white;
+        }
         
-        /* Happening Now Section */
-        .happening-now { padding: 80px 0; }
-        .articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .article-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .article-img { width: 100%; height: 250px; object-fit: cover; }
-        .article-content { padding: 25px; }
-        .article-category { color: var(--accent-red); font-weight: 600; margin-bottom: 15px; display: block; }
-        .article-title { color: var(--primary-blue); font-size: 1.3rem; margin-bottom: 15px; line-height: 1.4; }
-        .article-excerpt { color: var(--text-dark); line-height: 1.6; margin-bottom: 20px; }
+        .full-width-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .full-width-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .full-width-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .full-width-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        /* Happening Now */
+        .happening-now {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--usbank-blue);
+            margin-bottom: 50px;
+            font-size: 36px;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .article-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .article-content {
+            padding: 30px;
+        }
+        
+        .article-category {
+            color: var(--usbank-red);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .article-title {
+            color: var(--usbank-blue);
+            font-size: 20px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
         
         /* Footer */
-        .global-footer { background: #0a1a5a; color: white; padding: 60px 0 30px; }
-        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-        .footer-column h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: #b0b0b0; text-decoration: none; }
-        .footer-links a:hover { color: white; }
-        .copyright { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #b0b0b0; }
+        .global-footer {
+            background: var(--usbank-dark-blue);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--usbank-blue);
+            cursor: pointer;
+        }
         
         /* Responsive */
-        @media (max-width: 992px) {
-            .full-width-container { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2.5rem; }
+        @media (max-width: 1024px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .full-width-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content {
+                bottom: 40px;
+            }
+            
+            .hero-card {
+                max-width: 100%;
+            }
         }
+        
         @media (max-width: 768px) {
-            .nav-primary { display: none; }
-            .hero-content h1 { font-size: 2rem; }
-            .section-title { font-size: 2rem; }
+            .top-links {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .top-links-left, .top-links-right {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .hero-banner {
+                height: 400px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .button-primary, .button-secondary {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Top Header with Login Button -->
+    <div class="header-top">
+        <div class="header-container">
+            <div class="top-links">
+                <div class="top-links-left">
+                    <a href="/about-us-bank.html">About us</a>
+                    <a href="/financialiq.html">Financial education</a>
+                </div>
+                <div class="top-links-right">
+                    <a href="/customer-service.html">Support</a>
+                    <a href="https://www.usbank.com/locations/search/">Locations</a>
+                    <button class="smart-assistant-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M6.5 1C3.46 1 1 3.46 1 6.5S3.46 12 6.5 12c.61 0 1.19-.11 1.74-.3l3.56 3.56 1.06-1.06-3.56-3.56c.19-.55.3-1.13.3-1.74C12 3.46 9.54 1 6.5 1zm0 1C9.09 2 11 3.91 11 6.5S9.09 11 6.5 11 2 9.09 2 6.5 3.91 2 6.5 2z"/>
+                        </svg>
+                        Smart Assistant
+                    </button>
+                    <a href="https://onlinebanking.usbank.com/auth/login/" class="login-button">Log in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
     <header class="global-header">
-        <div class="container header-container">
-            <a href="/" class="logo">BankSmart</a>
-            <nav>
-                <ul class="nav-primary">
+        <div class="header-container">
+            <div class="main-nav">
+                <button class="mobile-menu-btn">☰</button>
+                <a href="/" class="logo">
+                    <!-- U.S. Bank Logo Text -->
+                    <span style="font-size: 24px; font-weight: bold; color: var(--usbank-blue);">U.S. Bank</span>
+                </a>
+                <ul class="nav-menu">
                     <li><a href="#personal">Personal</a></li>
+                    <li><a href="#wealth">Wealth Management</a></li>
                     <li><a href="#business">Business</a></li>
-                    <li><a href="#wealth">Wealth</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#login" class="login-btn">Log In</a></li>
+                    <li><a href="#corporate">Corporate & Commercial</a></li>
+                    <li><a href="#institutional">Institutional</a></li>
                 </ul>
-            </nav>
+                <a href="https://onlinebanking.usbank.com/auth/login/" class="login-button">Log in</a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Banner -->
     <section class="hero-banner">
         <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-             alt="Family managing finances" class="hero-image">
+             alt="Family managing finances together" class="hero-image">
         <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>Smart Banking for Modern Life</h1>
-                <p>Experience personalized banking services designed for your unique financial journey with competitive rates and digital convenience.</p>
-                <a href="#open-account" class="login-btn" style="font-size: 1.1rem; padding: 12px 30px;">Open an Account</a>
+        <div class="hero-content">
+            <div class="hero-card">
+                <h1>Personal Banking</h1>
+                <h2>Checking, rewards plus fee waivers with qualifying activities</h2>
+                <p>U.S. Bank Smartly® Checking rewards your everyday banking.</p>
+                <div class="button-group">
+                    <a href="/bank-accounts/checking-accounts/bank-smartly-checking.html" class="button-primary">Open an account</a>
+                    <a href="/bank-accounts/checking-accounts/bank-smartly-checking.html" class="button-secondary">View details</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Product Cards -->
-    <section class="product-cards">
-        <div class="container">
-            <h2 class="section-title">Featured Solutions</h2>
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="section-container">
             <div class="cards-grid">
-                <!-- Card 1 -->
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Credit Cards" class="card-img">
+                         alt="Credit Card" class="card-image">
                     <div class="card-content">
-                        <h3>Premium Credit Cards</h3>
-                        <p>Earn rewards on every purchase with our premium credit card options featuring competitive rates and exclusive benefits.</p>
-                        <a href="#credit-cards" class="card-link">Learn More</a>
+                        <h3>Credit card</h3>
+                        <p>U.S. Bank Split™ World Mastercard® - Pay later on every purchase with our newest card offering.</p>
+                        <a href="/credit-cards.html" class="arrow-link">Learn more</a>
                     </div>
                 </div>
-                
-                <!-- Card 2 -->
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Mobile Banking" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Banker meeting with client" class="card-image">
                     <div class="card-content">
-                        <h3>Mobile Banking</h3>
-                        <p>Bank on the go with our award-winning mobile app featuring secure transactions, budgeting tools, and investment tracking.</p>
-                        <a href="#mobile-banking" class="card-link">Get the App</a>
+                        <h3>Connect with us</h3>
+                        <p>Turn ambitions into achievements. With the right partner, there's no limit to what you can accomplish.</p>
+                        <a href="/schedule-appointment.html" class="arrow-link">Book an appointment</a>
                     </div>
                 </div>
-                
-                <!-- Card 3 -->
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Investment Planning" class="card-img">
-                    <div class="card-content">
-                        <h3>Investment Planning</h3>
-                        <p>Grow your wealth with personalized investment strategies, retirement planning, and expert financial guidance.</p>
-                        <a href="#investing" class="card-link">Start Investing</a>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="product-categories">
+        <div class="section-container">
+            <h2 class="section-title">Explore Products</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">💳</div>
+                    <h4>Credit Cards</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏦</div>
+                    <h4>Checking Accounts</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💰</div>
+                    <h4>Savings Accounts</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📈</div>
+                    <h4>CD Accounts</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏠</div>
+                    <h4>Mortgage</h4>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📊</div>
+                    <h4>Investing</h4>
                 </div>
             </div>
         </div>
@@ -162,133 +664,148 @@
 
     <!-- Full Width Section -->
     <section class="full-width-section">
-        <div class="container full-width-container">
+        <div class="full-width-content">
             <div>
                 <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                     alt="Woman using banking app" class="full-width-img">
+                     alt="Woman using mobile banking app" class="full-width-image">
             </div>
-            <div class="full-width-content">
-                <h2>Banking Made Simple</h2>
-                <p>Our intuitive digital platform brings all your financial tools together in one place. Track spending, set savings goals, and manage investments with ease.</p>
-                <p>Join millions of satisfied customers who trust us with their financial journey. Experience banking that works for you, not against you.</p>
-                <a href="#signup" class="login-btn" style="display: inline-block; margin-top: 20px;">Start Your Journey</a>
+            <div class="full-width-text">
+                <h2>Banking smarter is easier than ever.</h2>
+                <p>Unlock more benefits and rewards plus track your money in one app when you open a checking account.</p>
+                <p>Apply in minutes with just $25.</p>
+                <a href="/bank-accounts/checking-accounts.html" class="button-primary" style="margin-top: 20px;">Open a checking account</a>
             </div>
         </div>
     </section>
 
     <!-- Happening Now -->
     <section class="happening-now">
-        <div class="container">
-            <h2 class="section-title">Happening Now</h2>
-            <div class="articles-grid">
-                <!-- Article 1 -->
-                <article class="article-card">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Family in modern home" class="article-img">
-                    <div class="article-content">
-                        <span class="article-category">Fund Your Goals</span>
-                        <h3 class="article-title">Understanding Personal Lines of Credit for Your Financial Goals</h3>
-                        <p class="article-excerpt">Learn how personal lines of credit work and the pros and cons of using them to fund your financial objectives.</p>
-                        <a href="#article1" class="card-link">Read More</a>
-                    </div>
-                </article>
-                
-                <!-- Article 2 -->
-                <article class="article-card">
-                    <img src="https://images.unsplash.com/photo-1516627145497-ae695104b5e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Family teaching kids" class="article-img">
-                    <div class="article-content">
-                        <span class="article-category">Kids and Money</span>
-                        <h3 class="article-title">5 Important Ways to Boost Kids' Money Confidence</h3>
-                        <p class="article-excerpt">Practical tips for teaching financial literacy to children and helping them develop healthy money habits early.</p>
-                        <a href="#article2" class="card-link">Read More</a>
-                    </div>
-                </article>
-                
-                <!-- Article 3 -->
-                <article class="article-card">
-                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Retirement couple" class="article-img">
-                    <div class="article-content">
-                        <span class="article-category">Life Seasons</span>
-                        <h3 class="article-title">How to Fine-Tune Your Finances as an Empty Nester</h3>
-                        <p class="article-excerpt">Expert advice on adjusting your financial strategy when children leave home and planning for the next chapter.</p>
-                        <a href="#article3" class="card-link">Read More</a>
-                    </div>
-                </article>
-            </div>
+        <h2 class="section-title">Happening now</h2>
+        <div class="articles-grid">
+            <article class="article-card">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Family in modern home" class="article-image">
+                <div class="article-content">
+                    <span class="article-category">Fund your goals</span>
+                    <h3 class="article-title">Wondering about personal lines of credit? Here's what to know.</h3>
+                    <a href="/personal-lines-of-credit.html" class="arrow-link">Pros and cons</a>
+                </div>
+            </article>
+            <article class="article-card">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae695104b5e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Family teaching children about money" class="article-image">
+                <div class="article-content">
+                    <span class="article-category">Kids and money</span>
+                    <h3 class="article-title">5 important ways to boost kids' money confidence</h3>
+                    <a href="/teaching-kids-finance.html" class="arrow-link">Here's how</a>
+                </div>
+            </article>
+            <article class="article-card">
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Couple planning retirement" class="article-image">
+                <div class="article-content">
+                    <span class="article-category">Life seasons</span>
+                    <h3 class="article-title">How to fine-tune your finances as an empty nester</h3>
+                    <a href="/empty-nester-finances.html" class="arrow-link">See tips</a>
+                </div>
+            </article>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="global-footer">
-        <div class="container">
-            <div class="footer-container">
-                <div>
-                    <h4>Personal Banking</h4>
-                    <ul class="footer-links">
-                        <li><a href="#checking">Checking Accounts</a></li>
-                        <li><a href="#savings">Savings Accounts</a></li>
-                        <li><a href="#credit-cards">Credit Cards</a></li>
-                        <li><a href="#loans">Personal Loans</a></li>
-                        <li><a href="#mortgage">Mortgage</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Business Solutions</h4>
-                    <ul class="footer-links">
-                        <li><a href="#business-checking">Business Checking</a></li>
-                        <li><a href="#merchant-services">Merchant Services</a></li>
-                        <li><a href="#commercial-lending">Commercial Lending</a></li>
-                        <li><a href="#treasury">Treasury Management</a></li>
-                        <li><a href="#payment-processing">Payment Processing</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>About Us</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about">Our Story</a></li>
-                        <li><a href="#careers">Careers</a></li>
-                        <li><a href="#investor-relations">Investor Relations</a></li>
-                        <li><a href="#diversity">Diversity & Inclusion</a></li>
-                        <li><a href="#community">Community Impact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#security">Security Center</a></li>
-                        <li><a href="#accessibility">Accessibility</a></li>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms of Service</a></li>
-                    </ul>
-                </div>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Personal Banking</h4>
+                <ul class="footer-links">
+                    <li><a href="#checking">Checking Accounts</a></li>
+                    <li><a href="#savings">Savings Accounts</a></li>
+                    <li><a href="#credit-cards">Credit Cards</a></li>
+                    <li><a href="#loans">Personal Loans</a></li>
+                    <li><a href="#mortgage">Mortgage</a></li>
+                </ul>
             </div>
-            <div class="copyright">
-                <p>© 2024 BankSmart Financial. All rights reserved. | Member FDIC | Equal Housing Lender</p>
-                <p style="margin-top: 10px; font-size: 0.9rem;">
-                    Investment and insurance products are: Not a deposit • Not FDIC insured • May lose value • Not bank guaranteed • Not insured by any federal government agency
-                </p>
+            <div class="footer-column">
+                <h4>Wealth Management</h4>
+                <ul class="footer-links">
+                    <li><a href="#investing">Investing</a></li>
+                    <li><a href="#retirement">Retirement Planning</a></li>
+                    <li><a href="#trusts">Trusts & Estates</a></li>
+                    <li><a href="#financial-planning">Financial Planning</a></li>
+                </ul>
             </div>
+            <div class="footer-column">
+                <h4>Business</h4>
+                <ul class="footer-links">
+                    <li><a href="#business-checking">Business Checking</a></li>
+                    <li><a href="#business-loans">Business Loans</a></li>
+                    <li><a href="#merchant-services">Merchant Services</a></li>
+                    <li><a href="#commercial-banking">Commercial Banking</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>About U.S. Bank</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#investors">Investor Relations</a></li>
+                    <li><a href="#diversity">Diversity & Inclusion</a></li>
+                    <li><a href="#news">Newsroom</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#security">Security Center</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 U.S. Bank. All rights reserved. | Member FDIC | Equal Housing Lender</p>
+            <p style="margin-top: 10px; font-size: 12px;">
+                Investment and insurance products and services including annuities are:<br>
+                Not a deposit • Not FDIC insured • May lose value • Not bank guaranteed • Not insured by any federal government agency
+            </p>
         </div>
     </footer>
 
     <script>
-        // Simple interactivity
         document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scrolling for anchor links
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                if (navMenu.style.display === 'flex') {
+                    navMenu.style.flexDirection = 'column';
+                    navMenu.style.position = 'absolute';
+                    navMenu.style.top = '100%';
+                    navMenu.style.left = '0';
+                    navMenu.style.right = '0';
+                    navMenu.style.background = 'white';
+                    navMenu.style.padding = '20px';
+                    navMenu.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                    navMenu.style.zIndex = '1000';
+                }
+            });
+            
+            // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
+                    const href = this.getAttribute('href');
+                    if (href === '#' || href.startsWith('#!')) return;
                     
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
                         });
                     }
                 });
@@ -298,12 +815,36 @@
             const cards = document.querySelectorAll('.card, .article-card');
             cards.forEach(card => {
                 card.addEventListener('mouseenter', () => {
-                    card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
+                    card.style.transform = 'translateY(-5px)';
+                    card.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
                 });
+                
                 card.addEventListener('mouseleave', () => {
-                    card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
                 });
             });
+            
+            // Update year in copyright
+            const yearSpan = document.querySelector('.copyright p');
+            if (yearSpan) {
+                yearSpan.innerHTML = yearSpan.innerHTML.replace('2024', new Date().getFullYear());
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            if (window.innerWidth > 1024) {
+                navMenu.style.display = 'flex';
+                navMenu.style.flexDirection = 'row';
+                navMenu.style.position = 'static';
+                navMenu.style.background = 'transparent';
+                navMenu.style.padding = '0';
+                navMenu.style.boxShadow = 'none';
+            } else {
+                navMenu.style.display = 'none';
+            }
         });
     </script>
 </body>
